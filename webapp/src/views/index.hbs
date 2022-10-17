@@ -1,0 +1,50 @@
+<div id="main-form" class="container-fluid">
+    <div class="row">
+        {{!-- New data point creator --}}
+        <div class="col-md-6">
+            <div class="row justify-content-around">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    {{!-- Create data --}}
+                    <div class="card" style="margin: 10px 0px 10px 0px">
+                        <h5 class="card-header d-flex justify-content-between align-items-center">
+                            <b>Data point</b> <a id="add_point_button" style="color:darkgray;"><i class="fas fa-plus-square"></i></a>
+                        </h5>
+                        <div class="card-body">
+                            <form id="new_data">
+                                {{> dataform}}
+                            </form>
+                        </div>
+                    </div>
+
+                    <form id="data_sender" action="./predict" method="GET">
+                        {{!-- Send data (from the list) --}}
+                        <div class="d-flex btn-group justify-content-center" role="group">
+                            <button class="btn btn-secondary" type="submit">
+                                Send data
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+
+        {{!-- List of new dataponints created --}}
+        <div id="pointlist" class="d-flex col-md-6">
+            <div class="point_container col-md-9">
+                <h2>Drag data file</h2>
+                <span>or</span>
+                <button class="btn btn-secondary" type="button">
+                    Select files
+                </button>
+                <input type="file" name="" id="input-data" hidden multiple/>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="scripts/localHanddler.js"></script>
+<script src="scripts/dragger.js"></script>
+<script src="scripts/adder.js"></script>
