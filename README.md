@@ -16,7 +16,7 @@ The **SilverLight WebApp** recieves a number of `.cvs` files and/or a series of 
 
 ## Function
 
-The server will store in ===session memory=== an `Object` with the file and entry id's as keys that point to arrays of objects or individual objects in the form of 
+The server will store in session memory an `Object` with the file and entry id's as keys that point to arrays of objects or individual objects in the form of 
 
 ```js
 {
