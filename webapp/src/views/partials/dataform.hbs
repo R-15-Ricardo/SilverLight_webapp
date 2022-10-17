@@ -1,45 +1,129 @@
 <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Loc</label>
+    <label class="col-sm-3 col-form-label">Entrega</label>
     <div class="col-sm-4">
-        <input type="number" step="any" name="data_loclat" class="form-control" placeholder="LAT">
+        <input type="date" name="data_deliver" class="form-control">
     </div>
     <div class="col-sm-4">
-        <input type="number" step="any" name="data_loclong" class="form-control" placeholder="LONG">
+        <input type="time" name="data_deliver" class="form-control">
     </div>
 </div>
 <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Address</label>
+    <label class="col-sm-3 col-form-label">Tipo de via</label>
     <div class="col-sm-8">
-        <input type="text" name="data_address" class="form-control" placeholder="string">
+        <input type="number" step="1" min="1" max="10" required name="data_streettype" class="form-control" placeholder="ENTERO">
     </div>
 </div>
 <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Value</label>
+    <label class="col-sm-3 col-form-label">Piso o nivel</label>
     <div class="col-sm-8">
-        <input type="number" step="any" name="data_value" class="form-control" placeholder="int???">
+        <input type="text" maxlength="50" required name="data_floor" class="form-control" placeholder="ALFANUMÉRICO">
     </div>
 </div>
 <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Geo</label>
+    <label class="col-sm-3 col-form-label">Departamento</label>
     <div class="col-sm-8">
-        <input type="text" name="data_geo" class="form-control" placeholder="excuseme wtf?">
+        <input type="text" maxlength="150" required name="data_apartment" class="form-control" placeholder="ALFANUMÉRICO">
     </div>
 </div>
 <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Levels</label>
+    <label class="col-sm-3 col-form-label">Provincia</label>
     <div class="col-sm-8">
-        <input type="number" step="1" name="data_levels" class="form-control" placeholder="int">
+        <input type="text" maxlength="150" required name="data_province" class="form-control" placeholder="ALFANUMÉRICO">
     </div>
 </div>
 <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Type</label>
+    <label class="col-sm-3 col-form-label">Distrito</label>
     <div class="col-sm-8">
-        <input type="text" name="data_type" class="form-control" placeholder="string">
+        <input type="text" maxlength="150" required name="data_district" class="form-control" placeholder="ALFANUMÉRICO">
     </div>
 </div>
 <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Size</label>
+    <label class="col-sm-3 col-form-label">Estacionamientos</label>
     <div class="col-sm-8">
-        <input type="number" step="any" name="data_size" class="form-control" placeholder="mts2">
+        <input type="text" maxlength="50" required name="data_district" class="form-control" placeholder="ALFANUMÉRICO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Depositos</label>
+    <div class="col-sm-8">
+        <input type="text" maxlength="50" required name="data_deposintno" class="form-control" placeholder="ALFANUMÉRICO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Latitud</label>
+    <div class="col-sm-8">
+        <input type="number" step="0.000000001" required name="data_lat" class="form-control" placeholder="DECIMAL">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Longitd</label>
+    <div class="col-sm-8">
+        <input type="number" step="0.000000001" required name="data_lon" class="form-control" placeholder="DECIMAL">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Categoría</label>
+    <div class="col-sm-8">
+        <input type="text" maxlength="50" required name="data_category" class="form-control" placeholder="ALFANUMÉRICO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Posición</label>
+    <div class="col-sm-8">
+        <input type="text" maxlength="20" required name="data_position" class="form-control" placeholder="ALFANUMÉRICO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Frentes</label>
+    <div class="col-sm-8">
+        <input type="number" step="1" min="0" max="999" required name="data_fronts" class="form-control" placeholder="ENTERO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Edad</label>
+    <div class="col-sm-8">
+        <input type="number" step="1" min="0" max="99999" required name="data_age" class="form-control" placeholder="ENTERO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Elevadores</label>
+    <div class="col-sm-8">
+        <input type="number" step="1" min="0" max="99999" required name="data_elevators" class="form-control" placeholder="ENTERO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Conservación</label>
+    <div class="col-sm-8">
+        <input type="text" maxlength="20" required name="data_state" class="form-control" placeholder="ALFANUMÉRICO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Método representado</label>
+    <div class="col-sm-8">
+        <input type="text" maxlength="50" required name="data_method" class="form-control" placeholder="ALFANUMÉRICO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Moneda</label>
+    <div class="col-sm-8">
+        <input type="text" maxlength="3" required name="data_currency" class="form-control" placeholder="ALFANUMÉRICO">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Área (Terreno)</label>
+    <div class="col-sm-8">
+        <input type="number" step="0.01" required name="data_lotarea" class="form-control" placeholder="DECIMAL">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Área (Edificación)</label>
+    <div class="col-sm-8">
+        <input type="number" step="0.01" required name="data_buildarea" class="form-control" placeholder="DECIMAL">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 col-form-label">Valor comercial</label>
+    <div class="col-sm-8">
+        <input type="number" step="0.01" required name="data_value" class="form-control" placeholder="DECIMAL">
     </div>
 </div>

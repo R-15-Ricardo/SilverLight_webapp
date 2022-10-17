@@ -16,7 +16,7 @@ addButton.addEventListener('click', (e) => {
         const id = `entry-${Math.random().toString(32).substring(7)}`;
 
         let newEntry = {
-            loc : '(' + formData.get('data_loclat') +', '+ formData.get('data_loclong') + ')',
+            deliver : '(' + formData.get('data_loclat') +', '+ formData.get('data_loclong') + ')',
             address : formData.get('data_address'),
             value : formData.get('data_value'),
             geo : formData.get('data_geo'),

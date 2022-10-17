@@ -1,7 +1,7 @@
 {
   "name": "webapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "This app requires [node.js](https://nodejs.org/en/) to run.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js"
