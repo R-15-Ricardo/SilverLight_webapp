@@ -27,7 +27,7 @@ addButton.addEventListener('click', (e) => {
             loc : [parseFloat(formData.get('data_lat')), parseFloat(formData.get('data_lon'))],
             category : formData.get('data_category'),
             position : formData.get('data_position'),
-            fronts : formData.get('data_fronts'),
+            fronts : parseInt(formData.get('data_fronts')),
             age : parseInt(formData.get('data_age')),
             elevators : parseInt(formData.get('data_elevators')),
             state : formData.get('data_state'),
