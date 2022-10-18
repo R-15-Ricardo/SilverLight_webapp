@@ -1,7 +1,7 @@
 # S4D SilverLight
 
 ## Todo:
-- [ ] Create sessioning system for multiple connections.
+- [x] Fix `src/public/scripts/adder.js`.
 - [ ] Create data results front end.
 - [ ] Validate data entry.
 - [ ] Add backend (TF Serving).
