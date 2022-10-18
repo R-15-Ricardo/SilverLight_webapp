@@ -51,7 +51,8 @@ function showFiles(files) {
 
 function processFile(file) {
     const docType = file.type;
-    const validExtensions = ['text/csv', 'text/json'];
+    console.log(docType)
+    const validExtensions = ['application/wps-office.xlsx'];
 
     if (validExtensions.includes(docType)) {
         const fileReader = new FileReader();
@@ -93,6 +94,10 @@ async function uploadFile (entry, id) {
             body: formData,
         });
         const responseText = await response.text();
+        if (response.status == 500) {
+            removeItem(id)
+        }
+
         console.log(responseText);
         
     } catch (error) {
@@ -113,7 +118,7 @@ async function removeItem(id) {
         console.log(responseText);
         
     } catch (error) {
-        console.log("Error: could not upload file");
+        console.log("Error: could not delete file");
         return
     }
 

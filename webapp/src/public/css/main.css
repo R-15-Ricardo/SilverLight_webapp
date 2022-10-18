@@ -17,6 +17,10 @@ header {
     padding: 0px 50px 50px 50px;
 }
 
+#add_point_button {
+    cursor: pointer;
+}
+
 .point_container {
     margin: 2% 8% 7% 8%;
     border: 1px solid darkgray;

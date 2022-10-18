@@ -7,7 +7,7 @@ addButton.addEventListener('click', (e) => {
     let valid = true;
 
     for (let val of formData.values()) {
-        if (val == '') valid = false;
+        //if (val == '') valid = false;
     }
 
     if (!valid) {
@@ -16,13 +16,26 @@ addButton.addEventListener('click', (e) => {
         const id = `entry-${Math.random().toString(32).substring(7)}`;
 
         let newEntry = {
-            deliver : '(' + formData.get('data_loclat') +', '+ formData.get('data_loclong') + ')',
-            address : formData.get('data_address'),
-            value : formData.get('data_value'),
-            geo : formData.get('data_geo'),
-            levels : formData.get('data_levels'),
-            type : formData.get('data_type'),
-            size : formData.get('data_size')
+            deliver : String(formData.get('data_deliver_date')) + ' ' + String(formData.get('data_deliver_time')),
+            streetType : parseInt(formData.get('data_streettype')),
+            floor : formData.get('data_floor'),
+            apartment : formData.get('data_apartment'),
+            province : formData.get('data_province'),
+            district : formData.get('data_district'),
+            parkingNo : formData.get('data_parkingno'),
+            depositNo : formData.get('data_depositno'),
+            loc : [parseFloat(formData.get('data_lat')), parseFloat(formData.get('data_lon'))],
+            category : formData.get('data_category'),
+            position : formData.get('data_position'),
+            fronts : formData.get('data_fronts'),
+            age : parseInt(formData.get('data_age')),
+            elevators : parseInt(formData.get('data_elevators')),
+            state : formData.get('data_state'),
+            method : formData.get('data_method'),
+            currency : formData.get('data_currency'),
+            lotArea : parseFloat(formData.get('data_lotarea')),
+            buildArea : parseFloat(formData.get('data_buildarea')),
+            value : parseFloat(formData.get('data_value'))
         }   
 
         if (!uploadEntry(newEntry, id)) return

@@ -1,8 +1,7 @@
 # S4D SilverLight
 
-**===CURRENTLY NOT WORKING. WILL FIX ASAP===**
 ## Todo:
-- [ ] Fix `src/public/scripts/adder.js`. **URGENT SITE BROKEN**
+- [/] Fix `src/public/scripts/adder.js`.
 - [ ] Create sessioning system for multiple connections.
 - [ ] Create data results front end.
 - [ ] Validate data entry.

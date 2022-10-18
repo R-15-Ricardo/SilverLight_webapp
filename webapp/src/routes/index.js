@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const csv = require('csv-string')
+//const csv = require('csv-string')
+const xlsx = require('node-xlsx');
+const customParser = require('../helpers/dataParser');
 
 let dataEntries = {}
 
@@ -14,7 +16,7 @@ router.get('/predict', async (req, res) => {
         return
     }
 
-    finalJson = unpackEntries();
+    finalJson = customParser.unpackEntries(dataEntries);
     console.log(finalJson);
 
     dataEntries = {}
@@ -23,12 +25,30 @@ router.get('/predict', async (req, res) => {
 });
 
 router.post('/file', (req, res) => {
-    let dataCsv = String(req.files.file.data);
+    let recievedXlsxData = xlsx.parse(req.files.file.data);
 
-    dataEntries[req.body.file_id] = csv.parse(dataCsv, { output: 'objects' })
+    let dataObjects = Array()
+
+    for (let sheet of recievedXlsxData) {
+        let sheetObjects = customParser.parseSheet(sheet.data);
+
+        if (sheetObjects.length == 0) continue;        
+
+        for (let dataEntry of sheetObjects) {
+            dataObjects.push(dataEntry);
+        }
+    }
+
+    if (dataObjects.length == 0){
+        res.statusCode = 500;
+        res.send(`File ${req.files.file.name} (id: ${req.body.file_id}) was invalid.`);    
+        return;
+    }
+
+    dataEntries[req.body.file_id] = dataObjects
 
     console.log(Object.keys(dataEntries).length)
-    // console.log(dataEntries)
+    //console.log(dataEntries)
 
     res.send(`File ${req.files.file.name} (id: ${req.body.file_id}) recieved sucsessfully.`);
 });
@@ -38,7 +58,7 @@ router.post('/entry', (req, res) => {
     dataEntries[req.body.entry_id] = JSON.parse(req.body.entry)
 
     console.log(Object.keys(dataEntries).length)
-    // console.log(dataEntries)
+    //console.log(dataEntries)
 
     res.send(`Entry ${req.body.entry_id}) recieved sucsessfully.`);
 });
@@ -56,24 +76,7 @@ router.delete('/', (req, res) => {
     res.send(`Deleted data point with id ${req.body.data_id}`)
 });
 
-function unpackEntries() {
 
-    let entriesArray = Array();
-
-    for (let key of Object.keys(dataEntries)) {
-
-        if (key.includes('file')) {
-            for (datapt of dataEntries[key]) {
-                entriesArray.push(datapt)
-            }
-        } else if (key.includes('entry')) {
-            entriesArray.push(dataEntries[key])
-        }
-    }
-
-    return JSON.stringify(entriesArray)
-
-}
 
 module.exports = router;
 
