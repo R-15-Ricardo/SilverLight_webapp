@@ -16,7 +16,7 @@ addButton.addEventListener('click', (e) => {
         const id = `entry-${Math.random().toString(32).substring(7)}`;
 
         let newEntry = {
-            deliver : String(formData.get('data_deliver_date')) + ' ' + String(formData.get('data_deliver_time')),
+            deliver : String(formData.get('data_deliver_date')) + ', ' + String(formData.get('data_deliver_time')),
             streetType : parseInt(formData.get('data_streettype')),
             floor : formData.get('data_floor'),
             apartment : formData.get('data_apartment'),

@@ -44,8 +44,20 @@ customParser.parseSheet = (data) => {
 
         if (dataRow.length == 0) continue;
 
+        let loclist = new Array();
+
         for (let key of headers2name.keys()) {
-            newEntry[headers2name.get(key)] = dataRow[i];
+            if (headers2name.get(key) === 'deliver') {
+                newEntry[headers2name.get(key)] = new Date (dataRow[i]).toLocaleString('en-GB');
+            } else if (headers2name.get(key) === 'loc') {
+                loclist.push(parseFloat(dataRow[i]));
+                if (loclist.length == 2) {
+                    newEntry[headers2name.get(key)] = loclist;
+                }
+                
+            } else {
+                newEntry[headers2name.get(key)] = dataRow[i];
+            }            
             i++;
         }
 
