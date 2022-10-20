@@ -4,7 +4,8 @@
   "description": "This app requires [node.js](https://nodejs.org/en/) to run.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start" : "node src/index.js"
   },
   "keywords": [],
   "author": "",
