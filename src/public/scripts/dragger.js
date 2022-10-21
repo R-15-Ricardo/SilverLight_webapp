@@ -52,9 +52,10 @@ function showFiles(files) {
 function processFile(file) {
     const docType = file.type;
     console.log(docType)
-    const validExtensions = ['application/wps-office.xlsx'];
+    //const validExtensions = ['application/wps-office.xlsx'];
+    //validExtensions.includes(docType)
 
-    if (validExtensions.includes(docType)) {
+    if (docType.includes('xlsx') || docType.includes('xml')) {
         const fileReader = new FileReader();
         const id = `file-${Math.random().toString(32).substring(7)}`;
         
