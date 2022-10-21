@@ -18,27 +18,46 @@ const headers2name = new Map([
     ['Elevador', 'elevators'],
     ['Estado de conservación', 'state'],
     ['Método Representado', 'method'],
-    ['Moneda principal para cálculos', 'currency'],
     ['Área Terreno', 'lotArea'],
     ['Área Construcción', 'buildArea'],
-    ['Valor comercial', 'value'],
+    ['Valor comercial (USD)', 'value'],
 ])
 
 customParser.parseSheet = (data) => {
-    if (data[1].length != headers2name.size) {
-        return [];
+    //console.log(data)
+
+    let header_row = -1
+    for (let i = 0; i<10; i++) {
+
+        if (data[i].length != headers2name.size) {
+            console.log('Row ' + String(i) + ': Size does not match');
+            break;
+        }
+
+        for (let key of headers2name.keys()) {
+            if (!data[i].includes(key)) {
+                console.log('Row ' + String(i) + ': Keys do not match');
+                break;
+            }
+
+            header_row = i;
+            break
+        }
+
+        if (header_row != -1) break
+
     }
 
-    for (let key of headers2name.keys()) {
-        if (!data[1].includes(key)) {
-            console.log('invalid data sheet');
-            return [];
-        }
+    if (header_row == -1) {
+        console.log('Invalid data sheet: No matching header found')
+        return []
     }
+
+    console.log('Header found at row: ' + String(header_row))
 
     let sheetEntries = []
 
-    for (let dataRow of data.slice(2,data.length)) {
+    for (let dataRow of data.slice(header_row+1,data.length)) {
         let i = 0
         let newEntry = new Object()
 

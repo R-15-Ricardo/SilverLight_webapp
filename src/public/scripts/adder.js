@@ -32,7 +32,6 @@ addButton.addEventListener('click', (e) => {
             elevators : parseInt(formData.get('data_elevators')),
             state : formData.get('data_state'),
             method : formData.get('data_method'),
-            currency : formData.get('data_currency'),
             lotArea : parseFloat(formData.get('data_lotarea')),
             buildArea : parseFloat(formData.get('data_buildarea')),
             value : parseFloat(formData.get('data_value'))
