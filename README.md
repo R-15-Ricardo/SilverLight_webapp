@@ -36,19 +36,19 @@ The **SilverLight WebApp** recieves a number of `.cvs` files and/or a series of 
 
 ### Adding files
 
-![](assets/img/dragdrop.gif)
+![](docAssets/img/dragdrop.gif)
 
 ### Deleting entries
 
-![](assets/img/delete.gif)
+![](docAssets/img/delete.gif)
 
 ### Manual entry
 
-![](assets/img/manual.gif)
+![](docAssets/img/manual.gif)
 
 ### Final serialization
 
-![](assets/img/output.gif)
+![](docAssets/img/output.gif)
 
 ## Function
 
